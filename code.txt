@@ -1,0 +1,781 @@
+1 a
+import java.util.Scanner;
+public class Linears {
+public static void main(String[] args) 
+{
+int counter,num,item,array[];
+Scanner input= new Scanner(System.in);
+System.out.println("enter number of elements");
+num=input.nextInt();
+array=new int[num];
+System.out.println("enter " +num +" integer");
+for(counter=0;counter<num;counter++)
+array[counter]=input.nextInt();
+System.out.println("enter the search value");
+item=input.nextInt();
+for(counter=0;counter<num;counter++)
+{
+if(array[counter]==item)
+{
+System.out.println(item+" is present at location 
+"+(counter+1));
+break;
+}
+}
+if(counter==num)
+System.out.println(item+" is not present in array");
+}
+}
+
+
+1b
+import java.io.*;
+public class Sortingnames {
+public static void main(String[] args)throws IOException
+{
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+System.out.println("\n enter the number of names:");
+int n=Integer.parseInt(br.readLine());
+String names[]=new String[n];
+System.out.println();
+for(int i=1;i<=n;i++)
+{
+ System.out.println("enter name"+i+":");
+names[i-1]=br.readLine();
+}
+System.out.println("\n names in ascending order");
+System.out.println();
+for(int j=0;j<names.length;j++)
+{
+for(int i=j+1;i<names.length;i++)
+{
+if(names[i].compareToIgnoreCase(names[j])<0)
+{
+String temp=names[j];
+names[j]=names[i];
+names[i]=temp;
+}
+}
+System.out.println(names[j]);
+}
+}
+}
+
+
+2a
+class Car{
+public Car()
+{
+System.out.println("class car");
+}
+public void vehicleType()
+{
+System.out.println("vehicle type: car");
+}
+}
+class Maruti extends Car{
+public Maruti()
+{
+System.out.println("class maruti");
+}
+public void brand()
+{
+System.out.println("Brand: maruti");
+}
+public void speed()
+{
+System.out.println("Max:90kmph");
+}
+}
+public class Maruti800 extends Maruti {
+public Maruti800()
+{
+System.out.println("Maruti Model:800");
+}
+public void speed()
+{
+System.out.println("Max:80Kmph");
+}
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+Maruti800 obj=new Maruti800();
+obj.vehicleType();
+obj.brand();
+obj.speed();
+}
+}
+
+
+2b
+class Student
+{
+int rno;
+void setno(int n)
+{
+rno=n;
+}
+void putno()
+{
+System.out.println("RegNo:"+rno);
+}
+}
+class Test extends Student
+{
+float m1,m2;
+void setmarks(float a,float b)
+{
+m1=a;
+m2=b;
+}
+void putmarks()
+{
+System.out.println("M1:"+m1);
+System.out.println("M2:"+m2);
+}
+}
+interface Sports
+{
+float sportwt=6.0f;
+void putwt();
+}
+class Results extends Test implements Sports
+{
+float tot;
+public void putwt()
+{
+System.out.println("sports wt: " + sportwt);
+}
+void display()
+{
+tot=m1+m2+sportwt;
+putno();
+putmarks();
+putwt();
+System.out.println("Total: " + tot);
+}
+}
+public class Multiple {
+public static void main(String[] args) {
+Results r = new Results();
+r.setno(1001);
+r.setmarks(79f, 95f);
+r.display();
+}
+}
+
+
+3a(1)
+
+
+package P1;
+public class Student 
+{
+int regno;
+String name;
+public void getdata(int r,String s)
+{
+regno=r;
+name=s;
+}
+public void putdata()
+{
+System.out.println("regno="+regno);
+System.out.println("name="+name);
+}
+}
+
+
+
+
+3a(2)
+package P1;
+import P1.*;
+class StudentTest 
+{
+public static void main(String[] args) 
+{
+Student s=new Student();
+s.getdata(695,"nishanth");
+s.putdata();
+}
+}
+3b(2)
+import java.util.*;
+public class StringTokenizerDemo {
+public static void main(String[] args) 
+{
+int n;
+int sum=0;
+Scanner sc=new Scanner(System.in);
+System.out.println("enter the integer with one space gap");
+String s=sc.nextLine();
+StringTokenizer st=new StringTokenizer(s," ");
+while(st.hasMoreTokens())
+{
+String temp=st.nextToken();
+n=Integer.parseInt(temp);
+System.out.println(n);
+sum=sum+n;
+}
+System.out.println("sum of integers is:"+sum);
+sc.close();
+}
+}
+
+
+4(a)
+import java.util.Scanner;
+class stcalss 
+{
+ static int num1,num2;
+ static int add(int a, int b)
+ {
+ return a+b;
+ }
+ static int sub(int a,int b)
+ {
+ return a-b;
+ }
+ static int mul(int a,int b)
+ {
+ return a*b;
+ }
+ static int div(int a,int b)
+ {
+ return a/b;
+ }
+ static int modulus(int a,int b)
+ {
+ return a%b;
+ }
+ static int incremant(int a)
+ {
+ return --a;
+ 
+ }
+ static int decremant(int a)
+ {
+ return--a;
+ }
+ public static void main(String[] args) 
+ {
+Scanner input=new Scanner(System.in);
+System.out.println("enter two numbers:");
+num1=input.nextInt();
+num2=input.nextInt();
+System.out.println("\n the two numbers are:"
++num1+","+num2+"\n Addition:"
++add(num1,num2)+"\n subtraction:"
++sub(num1,num2)+"\n Multiplication:"
++mul(num1,num2)+"\n Division:"
+ +div(num1,num2)+"\n Modulus:"
+ +modulus(num1,num2)+"\n Incremant of first num: "
+ +incremant(num1)
+ +"\nDecremant of 2nd num:" +decremant(num2));
+ 
+}
+}
+
+
+
+4(b)
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class clsarray {
+public static void main(String[] args)throws IOException {
+// TODO Auto-generated method stub
+BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+int i,n;
+int a[]=new int[100];
+System.out.println("Enter the values of n");
+n=Integer.parseInt(br.readLine());
+System.out.println("Enter the values");
+for(i=0;i<n;i++)
+{
+a[i]=Integer.parseInt(br.readLine());
+}
+System.out.println("The values are");
+for(i=0;i<n;i++)
+{
+System.out.println(a[i]);
+}
+}
+}
+
+
+5a
+public class StringDemo {
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+ String s1=new String("ISE DSCE BANGALORE");
+ String s2=("ise dsce bangalore");
+ System.out.println("The String s1 is: "+s1);
+ System.out.println("The String s2 is: "+s2);
+ System.out.println("length of the string s1 is:"+s1.length());
+ System.out.println("Index of the letter r in he String s2 is: 
+"+s2.indexOf('r'));
+ System.out.println("Uppercase of the string s2 is: "+s2.toUpperCase());
+ System.out.println("Lowercase of string s1 is: "+s1.toLowerCase());
+ System.out.println("string s1 equals to string s2: "+s1.equals(s2));
+ System.out.println("string s1 equals to string s2: 
+"+s1.equalsIgnoreCase(s2));
+ int result=s1.compareTo(s2);
+ System.out.println("After compare 2");
+ if (result==0){
+ System.out.println(s1+"is equal to"+s2);
+ }
+ else if (result>0){
+ System.out.println(s1+" is greater than"+s2);
+ }
+ else{
+ System.out.println(s1+" is lesser than "+s2);}
+ 
+ System.out.println("The character at index 6 is: " +s1.charAt(6));
+ String s3=s1.substring(4,12);
+ System.out.println(s3);
+ System.out.println(s2.replace('g', 'a'));
+ String s4="This is a book";
+ System.out.println("string s4 is: "+s4);
+ System.out.println("string s4 trimmed: "+s4.trim()); 
+ System.out.println("Joined string:"+s1.concat(s2));
+ System.out.println(s1.endsWith("g"));
+ 
+ }
+}
+Outut
+The String s1 is: ISE DSCE BANGALORE
+The String s2 is: ise dsce bangalore
+length of the string s1 is:18
+Index of the letter r in he String s2 is: 16
+Uppercase of the string s2 is: ISE DSCE BANGALORE
+Lowercase of string s1 is: ise dsce bangalore
+string s1 equals to string s2: false
+string s1 equals to string s2: true
+After compare 2
+ISE DSCE BANGALORE is lesser than ise dsce bangalore
+The character at index 6 is: C
+DSCE BAN
+ise dsce banaalore
+string s4 is: This is a book
+string s4 trimmed: This is a book
+Joined string:ISE DSCE BANGALOREise dsce bangalore
+false
+5a(prem)
+import java.lang.String;
+public class stringdemo {
+ public static void main (String args []) 
+ {
+ String str = "Change me"; //1
+ System.out.println(str.replace('m','M')); //replace
+ String str1 = "0123456789";//2
+ System.out.println(str1.substring(4)); //substring
+ System.out.println(str1.substring(4,7)); 
+ String str2 = "ABCDEF";
+ System.out.println(str2.toLowerCase()); //toLowerCase
+ String str3 = "abcdef";//3
+ System.out.println(str3.toUpperCase()); //toUpperCase
+ int num = 35;//4
+ String s4 = String.valueOf(num); //valueOf
+ System.out.println(s4);
+ String str5 = " hello ";//5
+ System.out.println(str5.trim()); //trim
+ String a=""; //6
+ System.out.println(a.isEmpty()); // isEmpty
+ String str7 = "study"; //7
+ System.out.println(str7.startsWith("s")); //startsWith
+ System.out.println(str7.startsWith("t")); 
+ String str8 = "java";//8
+ System.out.println(str8.equalsIgnoreCase("JAVA")); //equalsIgnoreCase
+ String str9 = "Count me";//9
+ System.out.println(str9.length()); //length
+ String str10 = "java";//10
+ System.out.println( str10.charAt(2) ); //charAt
+ String str11 = "book";//11
+ System.out.println( str11.concat(" author") ); //concat 
+ String str12 = "kelvin "; //12
+ char [] arrayChar = str12.toCharArray(); //toCharArray
+ 
+ }
+}
+Change Me
+456789
+456
+abcdef
+ABCDEF
+35
+hello
+true
+true
+false
+true
+8
+v
+book author
+5(b)
+import java.lang.StringBuffer;
+public class StringBufferClass {
+public static void main(String[] args) {
+StringBuffer s1 = new StringBuffer("ISE DSCE BANGALORE");
+System.out.println(s1.append(" 2022"));
+System.out.println(s1.length());
+System.out.println(s1.capacity());
+System.out.println(s1.charAt(15));
+System.out.println(s1.deleteCharAt(13));
+System.out.println(s1.insert(13, 'A'));
+System.out.println(s1.replace(18, s1.length(), " 2023"));
+System.out.println(s1.delete(18, s1.length()));
+System.out.println(s1.reverse());
+}
+}
+Output
+ISE DSCE BANGALORE 2022
+23
+34
+O
+ISE DSCE BANGLORE 2022
+ISE DSCE BANGALORE 2022
+ISE DSCE BANGALORE 2023
+ISE DSCE BANGALORE
+EROLAGNAB ECSD ESI
+
+
+
+
+6
+import java.util.*;
+// class for Even Number
+class EvenNum implements Runnable { 
+ public int a; 
+ public EvenNum(int a) { 
+ this.a = a; 
+ } 
+ public void run() { 
+ System.out.println("The Thread "+ a +" is EVEN and Square of " + a + " is : "
++ a * a); 
+ } 
+} // class for Odd Number
+class OddNum implements Runnable { 
+ public int a; 
+ public OddNum(int a) { 
+ this.a = a; 
+ } 
+ public void run() { 
+ System.out.println("The Thread "+ a +" is ODD and Cube of " + a + " is: " + a
+* a * a); 
+ }
+}
+// class to generate random number
+class RandomNumGenerator extends Thread { 
+ public void run() { 
+ int n = 0; 
+ Random rand = new Random(); 
+ try { 
+ for (int i = 0; i < 10; i++) { 
+ n = rand.nextInt(20); 
+ System.out.println("Generated Number is " + n); 
+ // check if random number is even or odd
+ if (n % 2 == 0) { 
+ Thread thread1 = new Thread(new EvenNum(n)); 
+ thread1.start(); 
+ } 
+ else { 
+ Thread thread2 = new Thread(new OddNum(n)); 
+ thread2.start(); 
+ } 
+ // thread wait for 1 second
+ Thread.sleep(1000); 
+ System.out.println("------------------------------------"); 
+ } 
+ } 
+ catch (Exception ex) { 
+ System.out.println(ex.getMessage()); 
+ } 
+ } 
+}
+// Driver class
+public class multiThread { 
+ public static void main(String[] args) { 
+ RandomNumGenerator rand_num = new RandomNumGenerator(); 
+ rand_num.start(); 
+}
+}
+
+
+
+7
+
+
+
+import java.lang.*;
+import java.io.DataInputStream;
+class MyException extends Exception
+{
+MyException(String Message)
+{
+super(Message);
+}
+}
+public class userdef {
+public static void main(String[] args)
+{
+// TODO Auto-generated method stub
+ int age;
+ DataInputStream ds= new DataInputStream(System.in);
+ try
+ {
+ System.out.println("Enter the age Above 18 and below 25");
+ age=Integer.parseInt(ds.readLine());
+ if(age<18 || age>25)
+ {
+ throw new MyException("Number not in range");
+ }
+ System.out.println("the number is:"+age);
+ }
+ catch(MyException e)
+ {
+ System.out.println("Caught MyException");
+ System.out.println(e.getMessage());
+ }
+ catch(Exception e)
+ {
+ System.out.println(e); 
+ }
+}
+}
+
+
+
+
+8
+import java.applet.*;
+import java.awt.event.*;
+import java.awt.*;
+public class MouseEvents extends Applet implements MouseListener,MouseMotionListener
+{
+ String msg=" ";
+ int x=0,y=0;
+ public void init()
+ {
+ addMouseListener(this);
+ addMouseMotionListener(this);
+ }
+public void mouseClicked(MouseEvent m) 
+{
+x=10;
+y=10;
+msg="mouse clicked";
+repaint();
+}
+public void mouseEntered(MouseEvent m) 
+{
+// TODO Auto-generated method stub
+x=10;
+y=10;
+msg="mouse entered";
+repaint();
+}
+public void mouseExited(MouseEvent m)
+{
+// TODO Auto-generated method stub
+ x=10;
+ y=10;
+ msg="mouse exited";
+ repaint();
+}
+public void mousePressed(MouseEvent m) {
+// TODO Auto-generated method stub
+x=m.getX();
+y=m.getY();
+msg="up";
+repaint();
+}
+public void mouseReleased(MouseEvent m) 
+{
+// TODO Auto-generated method stub
+x=m.getX();
+y=m.getY();
+msg="down";
+repaint();
+}
+@Override
+public void mouseDragged(MouseEvent m) 
+{
+// TODO Auto-generated method stub
+x=m.getX();
+y=m.getY();
+msg="*";
+showStatus("dragged mouse at "+x+"&"+y);
+repaint();
+}
+@Override
+public void mouseMoved(MouseEvent m)
+{
+// TODO Auto-generated method stub
+showStatus("moving mouse at"+m.getX()+"2"+m.getY());
+}
+ public void paint(Graphics g)
+ {
+ g.drawString(msg,x,y);
+ }
+}
+8
+import java.applet.*;
+import java.awt.event.*;
+import java.awt.*;
+public class MouseEvents extends Applet implements MouseListener,MouseMotionListener
+{
+ String msg=" ";
+ int x=0,y=0;
+ public void init()
+ {
+ addMouseListener(this);
+ addMouseMotionListener(this);
+ }
+public void mouseClicked(MouseEvent m) 
+{
+x=10;
+y=10;
+msg="mouse clicked";
+repaint();
+}
+public void mouseEntered(MouseEvent m) 
+{
+// TODO Auto-generated method stub
+x=10;
+y=10;
+msg="mouse entered";
+repaint();
+}
+public void mouseExited(MouseEvent m)
+{
+// TODO Auto-generated method stub
+ x=10;
+ y=10;
+ msg="mouse exited";
+ repaint();
+}
+public void mousePressed(MouseEvent m) {
+// TODO Auto-generated method stub
+x=m.getX();
+y=m.getY();
+msg="up";
+repaint();
+}
+public void mouseReleased(MouseEvent m) 
+{
+// TODO Auto-generated method stub
+x=m.getX();
+y=m.getY();
+msg="down";
+repaint();
+}
+@Override
+public void mouseDragged(MouseEvent m) 
+{
+// TODO Auto-generated method stub
+x=m.getX();
+y=m.getY();
+msg="*";
+showStatus("dragged mouse at "+x+"&"+y);
+repaint();
+}
+@Override
+public void mouseMoved(MouseEvent m)
+{
+// TODO Auto-generated method stub
+showStatus("moving mouse at"+m.getX()+"2"+m.getY());
+}
+ public void paint(Graphics g)
+ {
+ g.drawString(msg,x,y);
+ }
+}
+
+
+
+
+10
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+public class dd extends HttpServlet {
+protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+throws ServletException, IOException {
+// TODO Auto-generated method stub
+HttpSession session = request.getSession(true);
+Date createTime = new Date(session.getCreationTime());
+Date lastAccessTime = new Date(session.getLastAccessedTime());
+String title = "Welcome";
+Integer visitCount = new Integer(0);
+String visitCountKey = new String("visitCount");
+String userIDKey = new String("userID");
+String userID = new String("ISE-DSCE");
+if (session.isNew()) {
+title = "Welcome to my website";
+session.setAttribute(userIDKey, userID);
+} else {
+visitCount = (Integer)session.getAttribute(visitCountKey);
+visitCount = visitCount + 1;
+userID = (String)session.getAttribute(userIDKey);
+}
+session.setAttribute(visitCountKey, visitCount);
+response.setContentType("text/html");
+PrintWriter out = response.getWriter();
+String docType =
+"<!doctype html public \"-//w3c//dtd html 4.0 " +
+"transitional//en\">\n";
+out.println(docType +
+"<html>\n" +
+"<head><title>" + title + "</title></head>\n" +
+"<body bgcolor = \"#f0f0f0\">\n" +
+"<h1 align = \"center\">" + title + "</h1>\n" +
+"<h2 align = \"center\">Session Infomation</h2>\n" +
+"<table border = \"1\" align = \"center\">\n" +
+"<tr bgcolor = \"#949494\">\n" +
+" <th>Session info</th><th>value</th> </tr>\n" +
+"<tr>\n" +
+" <td>id</td>\n" +
+" <td>" + session.getId() + "</td> </tr>\n" +
+"<tr>\n" +
+" <td>Creation Time</td>\n" +
+" <td>" + createTime + " </td> </tr>\n" +
+"<tr>\n" +
+" <td>Time of Last Access</td>\n" +
+" <td>" + lastAccessTime + " </td> </tr>\n" +
+"<tr>\n" +
+" <td>User ID</td>\n" +
+" <td>" + userID + " </td> </tr>\n" +
+"<tr>\n" +
+" <td>Number of visits</td>\n" +
+" <td>" + visitCount + "</td> </tr>\n" +
+"</table>\n" +
+"</body> </html>"
+);
+}
+}
+Xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+ <display-name>seesion1</display-name>
+ <welcome-file-list>
+ <welcome-file>dd</welcome-file>
+</welcome-file-list>
+ <servlet>
+<servlet-name>dd</servlet-name>
+<servlet-class>dd</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>dd</servlet-name>
+<url-pattern>/dd</url-pattern>
+</servlet-mapping>
+</web-app>
